@@ -17,4 +17,7 @@
 # sigh.
 # another solution would be to usee tr like so
 # expr $(head -2 primer_B.fasta | tail -1 | wc -m) - 1
-expr $(head -2 "$@" | tail -1 | wc -m) - 1
+for file in "$@"
+do
+  expr $(head -2 $file | tail -1 | wc -m) - 1
+done
